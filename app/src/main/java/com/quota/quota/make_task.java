@@ -43,7 +43,7 @@ public class make_task extends AppCompatActivity {
         dateField = (EditText)findViewById(R.id.dateIn);
         timeField = (EditText)findViewById(R.id.timeIn);
         error = (TextView)findViewById(R.id.error);
-        priorityRating = (RatingBar)findViewById(R.id.prioritySlider);
+        priorityRating = (RatingBar)findViewById(R.id.priority);
         confirmTask = (Button)findViewById(R.id.confirmTask);
 
         confirmTask.setOnClickListener(new View.OnClickListener() {
