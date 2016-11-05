@@ -1,14 +1,14 @@
 package com.quota.quota;
 
 import android.app.ListActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import java.util.ArrayList;
-import java.util.List;
-
+import android.view.View;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.content.Intent;
+
 
 public class MainActivity extends ListActivity {
 
@@ -26,7 +26,11 @@ public class MainActivity extends ListActivity {
 
     public Button addTaskButton;
 
-    public MainActivity() {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
         todayList = new ArrayList<Task>();
         tomorrowList = new ArrayList<Task>();
         otherList = new ArrayList<Task>();
@@ -39,12 +43,15 @@ public class MainActivity extends ListActivity {
                 android.R.layout.simple_list_item_1, otherList);
 
         addTaskButton = (Button)findViewById(R.id.newTaskButton);
+        addTaskButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), CreateTask.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
+
+
 }
 
