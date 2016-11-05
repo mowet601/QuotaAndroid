@@ -43,18 +43,23 @@ public class make_task extends AppCompatActivity {
         dateField = (EditText)findViewById(R.id.dateIn);
         timeField = (EditText)findViewById(R.id.timeIn);
         error = (TextView)findViewById(R.id.error);
-        priorityRating = (RatingBar)findViewById(R.id.prioritySlider);
+        priorityRating = (RatingBar)findViewById(R.id.priority);
         confirmTask = (Button)findViewById(R.id.confirmTask);
 
         confirmTask.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                if(nameField.getText()==null || dateField.getText()==null || timeField.getText()
+                        == null) {
+                    error.setVisibility(View.VISIBLE);
+                    return;
+                }
                 String tempDate = dateField.getText().toString();
                 short tempDay, tempMonth, tempYear;
                 tempDay = Short.parseShort(tempDate.substring(0, 2));
                 tempMonth = Short.parseShort(tempDate.substring(3, 5));
                 tempYear = Short.parseShort(tempDate.substring(6));
-                short tempTime = Short.parseShort(timeField.getText().toString().substring(0,1)+
-                        timeField.getText().toString().substring(2));
+                short tempTime = Short.parseShort(timeField.getText().toString().substring(0,2)+
+                        timeField.getText().toString().substring(3));
                 if(tempDay <= 0 || tempDay > 31 || tempMonth <= 0 || tempMonth > 12 ||
                         tempYear < 1000 || tempYear > 9999 || tempTime < 0 || tempTime > 2359) {
                     error.setVisibility(View.VISIBLE);
@@ -73,22 +78,10 @@ public class make_task extends AppCompatActivity {
                     priority = 3;
                 }
 
-                Calendar c = Calendar.getInstance();
-
                 Task task = new Task(name, day, month, year, time, priority);
-                Parcelable parcelledTask = new Parcelable() {
-                    @Override
-                    public int describeContents() {
-                        return 0;
-                    }
-
-                    @Override
-                    public void writeToParcel(Parcel parcel, int i) {
-
-                    }
-                };
                 Intent resultIntent = new Intent();
-                resultIntent.putExtra("task", parcelledTask);
+                resultIntent.putExtra("task", task.code());
+                setResult(make_task.RESULT_OK, resultIntent);
                 finish();
             }
         });

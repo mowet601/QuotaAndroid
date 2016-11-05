@@ -61,7 +61,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="34dp"
         android:id="@+id/dateIn"
-        android:hint="dd/mm/yyyy"
+        android:hint="mm/dd/yyyy"
         android:textAlignment="center"
         android:textSize="22sp"
         android:layout_width="150dp"
