@@ -27,31 +27,34 @@ public class MainActivity extends ListActivity {
     public Button addTaskButton;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
 
-        todayList = new ArrayList<Task>();
-        tomorrowList = new ArrayList<Task>();
-        otherList = new ArrayList<Task>();
+            todayList = new ArrayList<Task>();
+            tomorrowList = new ArrayList<Task>();
+            otherList = new ArrayList<Task>();
 
-        todayAdapt = new ArrayAdapter<Task>(getListView().getContext(),
-                android.R.layout.simple_list_item_1, todayList);
-        tomorrowAdapt = new ArrayAdapter<Task>(getListView().getContext(),
-                android.R.layout.simple_list_item_1, tomorrowList);
-        otherAdapt = new ArrayAdapter<Task>(getListView().getContext(),
-                android.R.layout.simple_list_item_1, otherList);
+            todayAdapt = new ArrayAdapter<Task>(getListView().getContext(),
+                    android.R.layout.simple_list_item_1, todayList);
+            tomorrowAdapt = new ArrayAdapter<Task>(getListView().getContext(),
+                    android.R.layout.simple_list_item_1, tomorrowList);
+            otherAdapt = new ArrayAdapter<Task>(getListView().getContext(),
+                    android.R.layout.simple_list_item_1, otherList);
 
-        addTaskButton = (Button)findViewById(R.id.newTaskButton);
-        addTaskButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), CreateTask.class);
-                startActivityForResult(myIntent, 0);
-            }
-        });
+            addTaskButton = (Button)findViewById(R.id.newTaskButton);
+            addTaskButton.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    Intent myIntent = new Intent(view.getContext(), make_task.class);
+                    startActivityForResult(myIntent, 0);
+                }
+            });
+        }
+
+        public void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        }
+
+
     }
-
-
-
-}
 
