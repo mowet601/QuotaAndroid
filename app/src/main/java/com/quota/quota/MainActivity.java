@@ -2,6 +2,7 @@ package com.quota.quota;
 
 import android.app.ListActivity;
 import android.content.Context;
+import android.media.SoundPool;
 import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -74,10 +75,12 @@ public class MainActivity extends ListActivity {
                 Object clicked = todayView.getItemAtPosition(position);
                 if(clicked instanceof Task) {
                     Task curr = (Task)clicked;
-                    Toast.makeText(getApplicationContext(), "You've completed the task: " +
-                            curr.name + " and earned" + counter + "!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "You've completed the task \"" +
+                            curr.name + "\" and earned " + counter + " points!", Toast.LENGTH_LONG)
+                            .show();
                     todayList.remove(curr);
                     todayView.setAdapter(todayAdapt);
+                    addPoints();
                 }
                 
             }
@@ -88,10 +91,10 @@ public class MainActivity extends ListActivity {
     public void addPoints() {
         qPoints += counter++;
         TextView score = (TextView)findViewById(R.id.score);
-        score.setText(qPoints);
+        score.setText("" + qPoints);
     }
 
-    public void onRestart() {
+    /*public void onRestart() {
         super.onRestart();
         Calendar c = Calendar.getInstance();
         if(day == c.DAY_OF_MONTH) {
@@ -127,7 +130,7 @@ public class MainActivity extends ListActivity {
             }
 
         }
-    }
+    }*/
 
 
     @Override
@@ -156,23 +159,11 @@ public class MainActivity extends ListActivity {
                     if (today.getYear() == (curr.getYear()) && today.getMonth() == (curr.getMonth())
                             && today.getDate() == (curr.getDate())) {
                         todayList.add(task);
-                        Collections.sort(todayList, new TaskComparator());
                         todayAdapt = new ArrayAdapter<Task>(todayView.getContext(),
                                 android.R.layout.simple_list_item_1, todayList);
+                        Collections.sort(todayList,
+                                Collections.<Task>reverseOrder(new TaskComparator()));
                         todayView.setAdapter(todayAdapt);
-
-
-                       /* for(int i = 0; i<todayList.size(); i++) {
-                            View v = todayAdapt.getView(i, null, null);
-                            if (task.priority == 1) {
-                                v.setBackgroundColor(Color.rgb(204, 204, 0));
-                            } else if (task.priority == 2) {
-                                v.setBackgroundColor(Color.rgb(255, 128, 0));
-                            } else if (task.priority == 3) {
-                                v.setBackgroundColor(Color.rgb(204, 0, 0));
-                            }
-                        }*/
-
                     } else if (today.getYear() < curr.getYear()) {
                         otherList.add(task.code());
                         Collections.sort(otherList);

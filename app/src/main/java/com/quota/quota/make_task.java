@@ -40,8 +40,8 @@ public class make_task extends AppCompatActivity {
 
         confirmTask.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                if(nameField.getText()==null || dateField.getText()==null || timeField.getText()
-                        == null) {
+                if(nameField.getText().toString().equals("") || dateField.getText().toString()
+                        .equals("") || timeField.getText().toString().equals("")) {
                     error.setVisibility(View.VISIBLE);
                     return;
                 }
@@ -53,7 +53,8 @@ public class make_task extends AppCompatActivity {
                 short tempTime = Short.parseShort(timeField.getText().toString().substring(0,2)+
                         timeField.getText().toString().substring(3));
                 if(tempDay <= 0 || tempDay > 31 || tempMonth <= 0 || tempMonth > 12 ||
-                        tempYear < 1000 || tempYear > 9999 || tempTime < 0 || tempTime > 2359) {
+                        tempYear < 1000 || tempYear > 9999 || tempTime < 0 || tempTime > 2359
+                        || ("" + tempTime).length()==3 || (""+tempYear).length()<4) {
                     error.setVisibility(View.VISIBLE);
                     return;
                 }

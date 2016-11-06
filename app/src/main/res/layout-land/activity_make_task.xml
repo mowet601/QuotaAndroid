@@ -11,19 +11,6 @@
     tools:context="com.quota.quota.make_task">
 
 
-    <TextView
-        android:text="Date or time is invalid."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/confirmTask"
-        android:id="@+id/error"
-        android:textSize="23sp"
-        android:layout_alignRight="@+id/taskName"
-        android:layout_alignEnd="@+id/taskName"
-        android:textColor="@android:color/background_dark"
-        android:textColorHighlight="@android:color/background_dark"
-        android:visibility="invisible" />
-
     <Button
         android:text="Create Task"
         android:layout_width="300dp"
@@ -142,6 +129,32 @@
         android:layout_alignBottom="@+id/timeIn"
         android:layout_alignLeft="@+id/low"
         android:layout_alignStart="@+id/low" />
+
+    <TextView
+        android:text="Date or time is invalid."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/error"
+        android:textSize="23sp"
+        android:textColor="@android:color/background_dark"
+        android:textColorHighlight="@android:color/background_dark"
+        android:visibility="invisible"
+        android:layout_marginRight="33dp"
+        android:layout_marginEnd="33dp"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/low"
+        android:layout_alignEnd="@+id/low" />
+
+    <TextView
+        android:text="Please enter text correctly!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/low"
+        android:layout_toEndOf="@+id/low" />
 
 
 </RelativeLayout>
