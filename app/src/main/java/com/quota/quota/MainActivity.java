@@ -1,8 +1,6 @@
 package com.quota.quota;
 
 import android.app.ListActivity;
-import android.content.Context;
-import android.media.SoundPool;
 import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -50,8 +48,6 @@ public class MainActivity extends ListActivity {
 
         qPoints = 0;
         counter = 1;
-        Calendar c = Calendar.getInstance();
-        day = c.get(Calendar.DAY_OF_MONTH);
 
         addTaskButton = (Button) findViewById(R.id.newTaskButton);
         addTaskButton.setOnClickListener(new View.OnClickListener() {
@@ -94,43 +90,49 @@ public class MainActivity extends ListActivity {
         score.setText("" + qPoints);
     }
 
-    /*public void onRestart() {
+    public void onRestart() {
         super.onRestart();
         Calendar c = Calendar.getInstance();
         if(day == c.DAY_OF_MONTH) {
             return;
         }
         if(todayList.size()>0) {
-            int day = c.DAY_OF_MONTH;
-            if (day != todayList.get(0).day) {
+            c.set(Calendar.SECOND, 0);
+            c.set(Calendar.MILLISECOND, 0);
+            c.set(Calendar.HOUR_OF_DAY, 0);
+            c.set(Calendar.MINUTE, 0);
+            int todayDate = c.get(Calendar.DAY_OF_MONTH);
+            c.set(Calendar.DAY_OF_MONTH, todayList.get(0).day);
+            int current = c.get(Calendar.DAY_OF_MONTH);
+            if (current != todayDate) {
                 todayList.clear();
                 todayView.setAdapter(todayAdapt);
                 counter = 1;
-            }
-            for(String s : otherList) {
-                Task task = new Task(s.substring(13), Short.parseShort(s.substring(2, 4)),
-                        Short.parseShort(s.substring(0, 2)),
-                        Short.parseShort(s.substring(4, 8)),
-                        Short.parseShort(s.substring(8, 12)),
-                        Short.parseShort(s.substring(12, 13)));
-                c.set(Calendar.HOUR_OF_DAY, 0);
-                c.set(Calendar.MINUTE, 0);
-                c.set(Calendar.SECOND, 0);
-                c.set(Calendar.MILLISECOND, 0);
-                Date today = c.getTime();
-                c.set(Calendar.YEAR, task.year);
-                c.set(Calendar.MONTH, task.month - 1);
-                c.set(Calendar.DAY_OF_MONTH, task.day);
-                Date curr = c.getTime();
-                if (today.getYear() == (curr.getYear()) && today.getMonth() == (curr.getMonth())
-                        && today.getDate() == (curr.getDate())) {
-                    otherList.remove(s);
-                    todayList.add(task);
+                for (String s : otherList) {
+                    Task task = new Task(s.substring(13), Short.parseShort(s.substring(2, 4)),
+                            Short.parseShort(s.substring(0, 2)),
+                            Short.parseShort(s.substring(4, 8)),
+                            Short.parseShort(s.substring(8, 12)),
+                            Short.parseShort(s.substring(12, 13)));
+                    c.set(Calendar.HOUR_OF_DAY, 0);
+                    c.set(Calendar.MINUTE, 0);
+                    c.set(Calendar.SECOND, 0);
+                    c.set(Calendar.MILLISECOND, 0);
+                    Date today = c.getTime();
+                    c.set(Calendar.YEAR, task.year);
+                    c.set(Calendar.MONTH, task.month - 1);
+                    c.set(Calendar.DAY_OF_MONTH, task.day);
+                    Date curr = c.getTime();
+                    if (today.getYear() == (curr.getYear()) && today.getMonth() == (curr.getMonth())
+                            && today.getDate() == (curr.getDate())) {
+                        otherList.remove(s);
+                        todayList.add(task);
+                    }
                 }
             }
 
         }
-    }*/
+    }
 
 
     @Override

@@ -102,19 +102,6 @@
         android:layout_alignEnd="@+id/textView2" />
 
     <TextView
-        android:text="Date or time is invalid."
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/confirmTask"
-        android:id="@+id/error"
-        android:textSize="23sp"
-        android:layout_alignRight="@+id/taskName"
-        android:layout_alignEnd="@+id/taskName"
-        android:textColor="@android:color/background_dark"
-        android:textColorHighlight="@android:color/background_dark"
-        android:visibility="invisible" />
-
-    <TextView
         android:text="Please enter text correctly!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -151,6 +138,18 @@
         android:layout_above="@+id/error"
         android:layout_toRightOf="@+id/priority"
         android:layout_toEndOf="@+id/priority" />
+
+    <TextView
+        android:text="Date or time is invalid."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/error"
+        android:textSize="23sp"
+        android:textColor="@android:color/background_dark"
+        android:textColorHighlight="@android:color/background_dark"
+        android:visibility="invisible"
+        android:layout_above="@+id/confirmTask"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
