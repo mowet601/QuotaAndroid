@@ -1,7 +1,7 @@
 package com.quota.quota;
 
 import android.app.ListActivity;
-import android.graphics.Color;
+import android.content.Context;
 import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -9,11 +9,13 @@ import java.util.Collections;
 import java.util.Date;
 
 import android.view.View;
-import android.widget.ListView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Button;
 import android.content.Intent;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends ListActivity {
 
@@ -27,6 +29,11 @@ public class MainActivity extends ListActivity {
     public Button addTaskButton;
     public TextView viewOther;
 
+    public int qPoints;
+    public int counter;
+
+    public int day;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +46,11 @@ public class MainActivity extends ListActivity {
 
         todayAdapt = new ArrayAdapter<Task>(todayView.getContext(),
                 android.R.layout.simple_list_item_1, todayList);
+
+        qPoints = 0;
+        counter = 1;
+        Calendar c = Calendar.getInstance();
+        day = c.get(Calendar.DAY_OF_MONTH);
 
         addTaskButton = (Button) findViewById(R.id.newTaskButton);
         addTaskButton.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +68,67 @@ public class MainActivity extends ListActivity {
                 startActivity(myIntent);
             }
         });
+
+        todayView.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Object clicked = todayView.getItemAtPosition(position);
+                if(clicked instanceof Task) {
+                    Task curr = (Task)clicked;
+                    Toast.makeText(getApplicationContext(), "You've completed the task: " +
+                            curr.name + " and earned" + counter + "!", Toast.LENGTH_LONG).show();
+                    todayList.remove(curr);
+                    todayView.setAdapter(todayAdapt);
+                }
+                
+            }
+
+        });
     }
+
+    public void addPoints() {
+        qPoints += counter++;
+        TextView score = (TextView)findViewById(R.id.score);
+        score.setText(qPoints);
+    }
+
+    public void onRestart() {
+        super.onRestart();
+        Calendar c = Calendar.getInstance();
+        if(day == c.DAY_OF_MONTH) {
+            return;
+        }
+        if(todayList.size()>0) {
+            int day = c.DAY_OF_MONTH;
+            if (day != todayList.get(0).day) {
+                todayList.clear();
+                todayView.setAdapter(todayAdapt);
+                counter = 1;
+            }
+            for(String s : otherList) {
+                Task task = new Task(s.substring(13), Short.parseShort(s.substring(2, 4)),
+                        Short.parseShort(s.substring(0, 2)),
+                        Short.parseShort(s.substring(4, 8)),
+                        Short.parseShort(s.substring(8, 12)),
+                        Short.parseShort(s.substring(12, 13)));
+                c.set(Calendar.HOUR_OF_DAY, 0);
+                c.set(Calendar.MINUTE, 0);
+                c.set(Calendar.SECOND, 0);
+                c.set(Calendar.MILLISECOND, 0);
+                Date today = c.getTime();
+                c.set(Calendar.YEAR, task.year);
+                c.set(Calendar.MONTH, task.month - 1);
+                c.set(Calendar.DAY_OF_MONTH, task.day);
+                Date curr = c.getTime();
+                if (today.getYear() == (curr.getYear()) && today.getMonth() == (curr.getMonth())
+                        && today.getDate() == (curr.getDate())) {
+                    otherList.remove(s);
+                    todayList.add(task);
+                }
+            }
+
+        }
+    }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -77,8 +149,6 @@ public class MainActivity extends ListActivity {
                     c.set(Calendar.SECOND, 0);
                     c.set(Calendar.MILLISECOND, 0);
                     Date today = c.getTime();
-                    c.set(Calendar.DAY_OF_MONTH, c.DAY_OF_MONTH + 1);
-                    Date tomorrow = c.getTime();
                     c.set(Calendar.YEAR, task.year);
                     c.set(Calendar.MONTH, task.month - 1);
                     c.set(Calendar.DAY_OF_MONTH, task.day);
@@ -90,6 +160,7 @@ public class MainActivity extends ListActivity {
                         todayAdapt = new ArrayAdapter<Task>(todayView.getContext(),
                                 android.R.layout.simple_list_item_1, todayList);
                         todayView.setAdapter(todayAdapt);
+
 
                        /* for(int i = 0; i<todayList.size(); i++) {
                             View v = todayAdapt.getView(i, null, null);

@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class others extends AppCompatActivity {
 
     ArrayList<Task> otherList;
-    ArrayAdapter<Task> otherAdapt;
+    ArrayAdapter otherAdapt;
     ListView otherView;
     Button back;
     TextView title;
@@ -27,9 +27,10 @@ public class others extends AppCompatActivity {
         back = (Button)findViewById(R.id.back);
         otherView = (ListView) findViewById(android.R.id.list);
         otherList = new ArrayList<Task>();
-        otherAdapt = new ArrayAdapter<Task>(otherView.getContext(),
-                android.R.layout.simple_list_item_1, otherList);
+        otherAdapt = new ArrayAdapter(otherView.getContext(), android.R.layout.simple_list_item_1,
+                otherList);
         otherView.setAdapter(otherAdapt);
+
 
         ArrayList<String> codeArray = (ArrayList<String>) getIntent().getSerializableExtra(
                 "otherList");
@@ -44,6 +45,7 @@ public class others extends AppCompatActivity {
         if(otherList.size()!=0) {
             Collections.sort(otherList, new TaskComparator());
         }
+
 
         back.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

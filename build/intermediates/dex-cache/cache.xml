@@ -34,7 +34,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="febd0ac4b49121c45744dd3198445ae46d595987">
+        sha1="cfeb6289b1e82894721ac35d0d887d3af75c268f">
         <dex dex="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_9853f5fb27ade3cd3eb235f5f3c712da9119431c\classes.dex" />
     </item>
     <item
@@ -124,7 +124,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="d8161362685ff72145ebbba136f12672f44f65a4">
+        sha1="022fbe0c0fa6b28b1ede445ae342e8fc0645ea61">
         <dex dex="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_aec091b05523c8e880d8bdef664f4ae8bb549718\classes.dex" />
     </item>
     <item
