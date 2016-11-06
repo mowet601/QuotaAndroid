@@ -58,16 +58,21 @@ public class Task implements Serializable{
     }
 
     private String formatTime() {
+        String min;
+        String minStr = ""+time;
+        if(minStr.length()==3) {
+            min = minStr.substring(1);
+        } else {
+            min = minStr.substring(2);
+        }
         int hour = (time/100) % 12;
         if(hour == 0) {
             hour = 12;
         }
-        String minStr = ""+time;
-        int min = Integer.parseInt(minStr.substring(2));
         if(time <= 1159) {
-            return hour+":"+min+" AM";
+            return hour+":"+ min + " AM";
         } else {
-            return hour+":"+min+" PM";
+            return hour+":"+ min + " PM";
         }
     }
 
@@ -79,12 +84,22 @@ public class Task implements Serializable{
         return complete;
     }
 
-    public int getPriority() {
-        return priority;
-    }
+    /*private String priorityColor() {
+        switch(priority){
+            case 1:
+                return "CCCC00";
+            case 2:
+                return "FF8000";
+            case 3:
+                return "FF0000";
+            default:
+                return "330000";
+        }
+    }*/
 
     public String toString() {
         return "Name: " + name + " | Date: " + month + "/" + day + "/" + year + "\n" +
-                "Time: " + formatTime();
+                "Time: " + formatTime() + " | " + "Priority Level: " + (priority==1 ? "Low" :
+                (priority==2 ? "Medium" : "High"));
     }
 }

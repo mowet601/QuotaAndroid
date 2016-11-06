@@ -1,9 +1,11 @@
 package com.quota.quota;
 
 import android.app.ListActivity;
+import android.graphics.Color;
 import android.os.Bundle;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 
 import android.view.View;
@@ -11,21 +13,21 @@ import android.widget.ListView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.content.Intent;
-
+import android.widget.TextView;
 
 public class MainActivity extends ListActivity {
 
     public ArrayList<Task> todayList;
-    public ArrayList<Task> tomorrowList;
     public ArrayList<Task> otherList;
 
     public ArrayAdapter<Task> todayAdapt;
-    public ArrayAdapter<Task> tomorrowAdapt;
     public ArrayAdapter<Task> otherAdapt;
 
     public ListView todayView;
+    public ListView otherView;
 
     public Button addTaskButton;
+    public TextView viewOther;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +35,12 @@ public class MainActivity extends ListActivity {
         setContentView(R.layout.activity_main);
 
         todayList = new ArrayList<Task>();
-        tomorrowList = new ArrayList<Task>();
         otherList = new ArrayList<Task>();
 
-        todayAdapt = new ArrayAdapter<Task>(getListView().getContext(),
+        todayView = (ListView)findViewById(android.R.id.list);
+
+        todayAdapt = new ArrayAdapter<Task>(todayView.getContext(),
                 android.R.layout.simple_list_item_1, todayList);
-        tomorrowAdapt = new ArrayAdapter<Task>(getListView().getContext(),
-                android.R.layout.simple_list_item_1, tomorrowList);
         otherAdapt = new ArrayAdapter<Task>(getListView().getContext(),
                 android.R.layout.simple_list_item_1, otherList);
 
@@ -48,6 +49,14 @@ public class MainActivity extends ListActivity {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), make_task.class);
                 startActivityForResult(myIntent, 0);
+            }
+        });
+
+        viewOther = (TextView)findViewById(R.id.other);
+        viewOther.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), others.class);
+
             }
         });
     }
@@ -80,14 +89,26 @@ public class MainActivity extends ListActivity {
                     if (today.getYear() == (curr.getYear()) && today.getMonth() == (curr.getMonth())
                             && today.getDate() == (curr.getDate())) {
                         todayList.add(task);
-                    } else if (tomorrow.getYear() == (curr.getYear()) && tomorrow.getMonth() ==
-                            (curr.getMonth()) && tomorrow.getDate() == (curr.getDate())) {
-                        tomorrowList.add(task);
-                    } else {
+                        Collections.sort(otherList, new TaskComparator());
+                        todayAdapt = new ArrayAdapter<Task>(todayView.getContext(),
+                                android.R.layout.simple_list_item_1, todayList);
+                        todayView.setAdapter(todayAdapt);
+
+                       /* for(int i = 0; i<todayList.size(); i++) {
+                            View v = todayAdapt.getView(i, null, null);
+                            if (task.priority == 1) {
+                                v.setBackgroundColor(Color.rgb(204, 204, 0));
+                            } else if (task.priority == 2) {
+                                v.setBackgroundColor(Color.rgb(255, 128, 0));
+                            } else if (task.priority == 3) {
+                                v.setBackgroundColor(Color.rgb(204, 0, 0));
+                            }
+                        }*/
+
+                    } else if (tomorrow.getYear() >= curr.getYear()) {
                         otherList.add(task);
-                    }
-                    if (!todayAdapt.isEmpty()) {
-                        getListView().setAdapter(todayAdapt);
+                        Collections.sort(otherList, new TaskComparator());
+                        otherView.setAdapter(otherAdapt);
                     }
                 }
             }

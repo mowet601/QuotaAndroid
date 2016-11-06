@@ -3,69 +3,6 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\libs\internal_impl-25.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
-        <dex dex="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_b4f96f4a2b9b273399ab243d3825dfc79c4bcb56\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Noah\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.0.0\support-annotations-25.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
-        <dex dex="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.0.0_1460e7ed59487e3f8368dcad54074e11b4685aa4\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="75b1f366ff0bbc78f8b1f7cf0dc82e7c53afef6a">
-        <dex dex="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.0.0_1c5c531b7b795f8526f476a32569527cbee3150c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="fc781e348f9c39487c132bddab24297c9cd060a3">
-        <dex dex="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_9853f5fb27ade3cd3eb235f5f3c712da9119431c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="26674000177e45447a0326a6ad84612761199a13">
-        <dex dex="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.0.0_f6abc176ebfed4b3ec202c19d10c60e6f9d46e32\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d29714cc76b38157e3cbd034c66e1ec808eb4c19">
-        <dex dex="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.0.0_0b337e981440fe4690eb7fcaf1f3ba533b6d5d6f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="76fb65a4b41ea42dab8a1310ed772a2420c96b52">
-        <dex dex="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.0.0_c509dc4e631178e660d5bfc32934b4dc76dac02c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -84,12 +21,30 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\libs\internal_impl-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f2e3b9bc1ec25f652e8007ce7774c991e38f6a00">
+        <dex dex="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_b4f96f4a2b9b273399ab243d3825dfc79c4bcb56\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\libs\internal_impl-25.0.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
         <dex dex="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_f75084635f38050f8983ca8a0f1960dc78c4e2cd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Noah\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.0.0\support-annotations-25.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a22d2cc94da87b254451fa8ed28afc30b4653773">
+        <dex dex="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.0.0_1460e7ed59487e3f8368dcad54074e11b4685aa4\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -124,8 +79,44 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="e7bd5cb6b0aca175a13a888024a3d219c166d848">
+        sha1="cef9b1e46b37c335a184c80c6728e1a8631ea388">
         <dex dex="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_aec091b05523c8e880d8bdef664f4ae8bb549718\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="75b1f366ff0bbc78f8b1f7cf0dc82e7c53afef6a">
+        <dex dex="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.0.0_1c5c531b7b795f8526f476a32569527cbee3150c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="588da0803f330c84cb768e2e07dba993d64c948e">
+        <dex dex="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_9853f5fb27ade3cd3eb235f5f3c712da9119431c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="26674000177e45447a0326a6ad84612761199a13">
+        <dex dex="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.0.0_f6abc176ebfed4b3ec202c19d10c60e6f9d46e32\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d29714cc76b38157e3cbd034c66e1ec808eb4c19">
+        <dex dex="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.0.0_0b337e981440fe4690eb7fcaf1f3ba533b6d5d6f\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -144,6 +135,15 @@
         revision="25.0.0"
         sha1="665d21a8a069c96b4d9e8b434f5096d865b4e261">
         <dex dex="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.0_263549f9d70d9ba1ba3a964dbb523e4694c96f71\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="76fb65a4b41ea42dab8a1310ed772a2420c96b52">
+        <dex dex="C:\Users\Noah\AndroidStudioProjects\QuotaAndroid\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.0.0_c509dc4e631178e660d5bfc32934b4dc76dac02c\classes.dex" />
     </item>
     <item
         is-multidex="true"

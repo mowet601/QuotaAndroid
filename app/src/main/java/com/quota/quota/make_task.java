@@ -1,21 +1,13 @@
 package com.quota.quota;
 
-import com.quota.quota.MainActivity;
 import android.content.Intent;
-import android.hardware.SensorEventListener;
-import android.os.Parcel;
-import android.os.Parcelable;
-import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.RatingBar;
 import android.widget.Button;
-
-import java.util.Calendar;
 
 public class make_task extends AppCompatActivity {
 
