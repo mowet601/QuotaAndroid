@@ -18,13 +18,11 @@ import android.widget.TextView;
 public class MainActivity extends ListActivity {
 
     public ArrayList<Task> todayList;
-    public ArrayList<Task> otherList;
+    public ArrayList<String> otherList;
 
     public ArrayAdapter<Task> todayAdapt;
-    public ArrayAdapter<Task> otherAdapt;
 
     public ListView todayView;
-    public ListView otherView;
 
     public Button addTaskButton;
     public TextView viewOther;
@@ -35,14 +33,12 @@ public class MainActivity extends ListActivity {
         setContentView(R.layout.activity_main);
 
         todayList = new ArrayList<Task>();
-        otherList = new ArrayList<Task>();
+        otherList = new ArrayList<String>();
 
         todayView = (ListView)findViewById(android.R.id.list);
 
         todayAdapt = new ArrayAdapter<Task>(todayView.getContext(),
                 android.R.layout.simple_list_item_1, todayList);
-        otherAdapt = new ArrayAdapter<Task>(getListView().getContext(),
-                android.R.layout.simple_list_item_1, otherList);
 
         addTaskButton = (Button) findViewById(R.id.newTaskButton);
         addTaskButton.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +52,8 @@ public class MainActivity extends ListActivity {
         viewOther.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), others.class);
-
+                myIntent.putExtra("otherList", otherList);
+                startActivity(myIntent);
             }
         });
     }
@@ -69,8 +66,8 @@ public class MainActivity extends ListActivity {
                 if (resultCode == make_task.RESULT_OK) {
                     Bundle b = data.getExtras();
                     String s = b.getString("task");
-                    Task task = new Task(s.substring(13), Short.parseShort(s.substring(0, 2)),
-                            Short.parseShort(s.substring(2, 4)),
+                    Task task = new Task(s.substring(13), Short.parseShort(s.substring(2, 4)),
+                            Short.parseShort(s.substring(0, 2)),
                             Short.parseShort(s.substring(4, 8)),
                             Short.parseShort(s.substring(8, 12)),
                             Short.parseShort(s.substring(12, 13)));
@@ -89,7 +86,7 @@ public class MainActivity extends ListActivity {
                     if (today.getYear() == (curr.getYear()) && today.getMonth() == (curr.getMonth())
                             && today.getDate() == (curr.getDate())) {
                         todayList.add(task);
-                        Collections.sort(otherList, new TaskComparator());
+                        Collections.sort(todayList, new TaskComparator());
                         todayAdapt = new ArrayAdapter<Task>(todayView.getContext(),
                                 android.R.layout.simple_list_item_1, todayList);
                         todayView.setAdapter(todayAdapt);
@@ -105,13 +102,22 @@ public class MainActivity extends ListActivity {
                             }
                         }*/
 
-                    } else if (tomorrow.getYear() >= curr.getYear()) {
-                        otherList.add(task);
-                        Collections.sort(otherList, new TaskComparator());
-                        otherView.setAdapter(otherAdapt);
+                    } else if (today.getYear() < curr.getYear()) {
+                        otherList.add(task.code());
+                        Collections.sort(otherList);
+                    } else if (today.getYear()== curr.getYear()&&today.getMonth()<curr.getMonth()) {
+                        otherList.add(task.code());
+                        Collections.sort(otherList);
+                    } else if (today.getYear() == curr.getYear() && today.getMonth()==
+                            curr.getMonth()&&today.getDate()<curr.getDate()) {
+                        otherList.add(task.code());
+                        Collections.sort(otherList);
                     }
+
                 }
             }
         }
     }
 }
+
+

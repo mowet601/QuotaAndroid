@@ -76,8 +76,6 @@
         android:clickable="true"
         android:layout_above="@+id/newTaskButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/newTaskButton"
-        android:layout_alignEnd="@+id/newTaskButton" />
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

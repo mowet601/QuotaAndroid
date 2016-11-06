@@ -47,8 +47,8 @@ public class make_task extends AppCompatActivity {
                 }
                 String tempDate = dateField.getText().toString();
                 short tempDay, tempMonth, tempYear;
-                tempDay = Short.parseShort(tempDate.substring(0, 2));
-                tempMonth = Short.parseShort(tempDate.substring(3, 5));
+                tempMonth = Short.parseShort(tempDate.substring(0, 2));
+                tempDay = Short.parseShort(tempDate.substring(3, 5));
                 tempYear = Short.parseShort(tempDate.substring(6));
                 short tempTime = Short.parseShort(timeField.getText().toString().substring(0,2)+
                         timeField.getText().toString().substring(3));
