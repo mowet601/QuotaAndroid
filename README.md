@@ -1,7 +1,7 @@
 # QuotaAndroid
 Quota Android App
 
-NOTE: If master branch seems incomplete, go to Noah branch. Attempted to make the branch the master, but unsure if it worked correctly. The Noah branch has the most updated version.
+NOTE: If master branch seems incomplete, go to the Noah branch. Attempted to make the branch the master branch, but unsure if overwrote the master correctly. The Noah branch has the most updated version.
 
 Quota - a practical to-do list app for iOS and Android. (HoyaHacks 2016 Project) See accompanying iOSapp: https://github.com/matthewmuccio/QuotaiOS
 
