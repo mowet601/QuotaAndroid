@@ -11,6 +11,4 @@ INCOMPLETE FEATURES:
 
 Firebase integration: The tasks are not saved or loaded to or from the Firebase database right now.
 
-Saving any kind of data: As of right now the data stored in the app is temporary, that is when the user closes the app, the tasks will not save. Obviously this makes the app nearly useless, but that will be coming in future versions.
-
 HoyaHacks was our very first hackathon, so we really did not know what to expect. Although our app was not fully completed, we really enjoyed the experience. Thanks HoyaHacks!
